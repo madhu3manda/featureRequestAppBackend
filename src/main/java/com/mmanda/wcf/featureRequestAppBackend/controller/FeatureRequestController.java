@@ -9,7 +9,6 @@ import com.mmanda.wcf.featureRequestAppBackend.utils.ProcessRequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.resource.HttpResource;
 
 import java.util.List;
 
