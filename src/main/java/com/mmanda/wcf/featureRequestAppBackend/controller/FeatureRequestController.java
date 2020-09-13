@@ -19,7 +19,7 @@ import static com.mmanda.wcf.featureRequestAppBackend.constants.ConstantsDeclara
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value=BASE_PATH, consumes="application/json")
+@RequestMapping(value=BASE_PATH, consumes=APP_JSON)
 public class FeatureRequestController {
 
     private final Logger logger = LoggerFactory.getLogger(FeatureRequestController.class);
@@ -39,6 +39,7 @@ public class FeatureRequestController {
         if(processRequestUtil.preChecks(featureRequest)) {
 
             logger.info(NEW_FEATURE_REQUEST_START);
+            logger.debug("FeatureRequest {}",featureRequest);
             return fetureRequestService.save(featureRequest);
 
         } else {
@@ -48,22 +49,31 @@ public class FeatureRequestController {
         }
     }
 
-    @GetMapping("getAllClients")
+    @GetMapping(GET_ALL_CLIENTS_REQUESTS)
     public List<FeatureRequestEntity> getAllClients() {
+
         return cServ.getAllClients();
     }
 
-    @GetMapping("getByClient")
+    @GetMapping(GET_BY_CLIENT)
     public @ResponseBody Object getByClient(@RequestParam("client") String client) {
 
         List<FeatureRequestEntity> response = new ArrayList<>();
 
-        if(client!=null)
-        response= fetureRequestService.getAllRecordsForClient(client.toLowerCase());
+        if(client!=null) {
 
-        if(response!=null) return response;
+            response = fetureRequestService.getAllRecordsForClient(client.toLowerCase());
 
-        return new FailureResponse(HttpStatus.NO_CONTENT);
+        }
+
+        if(response!=null)  {
+
+            return response;
+        } else {
+            return new FailureResponse(HttpStatus.NO_CONTENT);
+        }
+
+
     }
 
 }

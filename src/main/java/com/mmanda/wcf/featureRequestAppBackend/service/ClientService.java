@@ -1,7 +1,10 @@
 package com.mmanda.wcf.featureRequestAppBackend.service;
 
+import com.mmanda.wcf.featureRequestAppBackend.controller.FeatureRequestController;
 import com.mmanda.wcf.featureRequestAppBackend.entity.FeatureRequestEntity;
 import com.mmanda.wcf.featureRequestAppBackend.repository.ClientRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +19,7 @@ public class ClientService {
     @Autowired
     ClientRepository cRepo;
 
+    private final Logger logger = LoggerFactory.getLogger(ClientService.class);
 
     public List<FeatureRequestEntity> getAllClients(){
         List<FeatureRequestEntity> returnVal = new ArrayList<>();
