@@ -33,7 +33,7 @@ URL: http://localhost:8080/feature/request/newRequest
 
 # Request Format 
 
-URL: http://localhost:8080/feature/request/newRequest
+URL: http://localhost:8080/feature/request/getAllClients
 
 GET request directly consumes all the requests by {http://localhost:8080/feature/request/getAllClients} if there is no requests records in DB it returns empty response
 
@@ -51,9 +51,10 @@ Request must contains Request Param "client" name then api will provide the all 
 
 1. Can be Develop another API to Delete previously requested based on Client name or Request ID
 2. Can be add more Request/Response validations for each APIs and return proper error messages accordingly
-3. Can be add more logging
+3. Can be add more logging for debugging
 4. Can be add more tests for code coverage and Unit tests using Junit and Mockito
 5. Can be add tests for Data base schema
+6. Can be Provide the feature request records by Product area also by adding another api which accepts the Product are field
 
 
 
