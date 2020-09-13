@@ -3,6 +3,8 @@ package com.mmanda.wcf.featureRequestAppBackend.service;
 import com.mmanda.wcf.featureRequestAppBackend.entity.FeatureRequestEntity;
 import com.mmanda.wcf.featureRequestAppBackend.model.FeatureRequest;
 import com.mmanda.wcf.featureRequestAppBackend.repository.FeatureRequestRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +14,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static com.mmanda.wcf.featureRequestAppBackend.constants.ConstantsDeclarations.NEW_FEATURE_REQUEST_COMPLETE;
+
 @Component
 public class FeatureRequestServiceImpl implements FeatureRequestService {
 
+
+    private final Logger logger = LoggerFactory.getLogger(FeatureRequestServiceImpl.class);
 
     @Autowired
     FeatureRequestRepository featureRequestRepository;
@@ -59,6 +65,7 @@ public class FeatureRequestServiceImpl implements FeatureRequestService {
 
         }
 
+        logger.info(NEW_FEATURE_REQUEST_COMPLETE);
         return returnVal;
     }
 

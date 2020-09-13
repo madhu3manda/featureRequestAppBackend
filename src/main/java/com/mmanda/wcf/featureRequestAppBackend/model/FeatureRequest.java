@@ -63,6 +63,7 @@ public class FeatureRequest {
         return targetDate;
     }
 
+    @JsonProperty("parea")
     public String getProductArea() {
         return productArea;
     }
