@@ -1,6 +1,5 @@
 package com.mmanda.wcf.featureRequestAppBackend.repository;
 
-import com.mmanda.wcf.featureRequestAppBackend.entity.ClientsEntity;
 import com.mmanda.wcf.featureRequestAppBackend.entity.FeatureRequestEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
