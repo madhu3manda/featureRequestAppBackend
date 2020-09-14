@@ -31,13 +31,18 @@ public class FeatureRequestServiceImpl implements FeatureRequestService {
 
         FeatureRequestEntity returnVal = null;
 
+        int count=0,index=-1;
 
-        int index = Collections.binarySearch(list, request.getPriority(), new Comparator<Comparable<? extends Serializable>>() {
-            @Override
-            public int compare(Comparable<? extends Serializable> o1, Comparable<? extends Serializable> o2) {
-                return 0;
+        for(FeatureRequestEntity fe:list) {
+
+            if(fe.getPriority()==request.getPriority()) {
+                index=count;
+                break;
             }
-        });
+            count++;
+
+        }
+
 
         if(index < 0) {
 
